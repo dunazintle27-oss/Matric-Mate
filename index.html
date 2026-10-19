@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111114">
+<meta name="description" content="MatricMate SA — your South African CAPS study companion.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.css">
+<title>MatricMate SA</title>
+</head>
+<body>
+<header class="topbar">
+  <div class="brandmark">MM</div>
+  <div><strong>MatricMate SA</strong><small>YOUR MATRIC. YOUR FUTURE.</small></div>
+  <button id="installBtn" class="install hidden" type="button">Install</button>
+</header>
+<main>
+  <section class="hero">
+    <p class="eyebrow">YOUR STUDY SPACE</p>
+    <h1>Small steps.<br><span>Big results.</span></h1>
+    <p>CAPS revision, practice and planning — made for South African learners.</p>
+    <div class="hero-row"><span>🇿🇦 Made for SA learners</span><span id="today"></span></div>
+  </section>
+
+  <nav class="tabs" aria-label="Main navigation">
+    <button class="tab active" data-page="home">Home</button>
+    <button class="tab" data-page="subjects">Subjects</button>
+    <button class="tab" data-page="planner">Planner</button>
+    <button class="tab" data-page="progress">Progress</button>
+  </nav>
+
+  <section id="page-home" class="page">
+    <div class="section-heading"><h2>Welcome back</h2><span class="pill">Free</span></div>
+    <label class="field-label" for="grade">Choose your grade</label>
+    <select id="grade"><option>Grade 10</option><option>Grade 11</option><option selected>Grade 12 / Matric</option></select>
+    <div class="quick-grid">
+      <button class="quick-card" data-go="subjects"><span class="tile-icon">📚</span><b>Revision notes</b><small>Browse subjects</small></button>
+      <button class="quick-card" data-go="planner"><span class="tile-icon">🗓️</span><b>Study planner</b><small>Set your goals</small></button>
+      <button class="quick-card" data-go="subjects"><span class="tile-icon">🧠</span><b>Quick revision</b><small>Pick a topic</small></button>
+      <button class="quick-card" data-go="progress"><span class="tile-icon">📈</span><b>My progress</b><small>Track your goals</small></button>
+    </div>
+    <div class="notice"><b>Start here</b><p>Choose a subject, add a study goal, and track your progress. Your planner is saved on this device.</p></div>
+  </section>
+
+  <section id="page-subjects" class="page hidden">
+    <h2>Explore subjects</h2>
+    <p class="muted">Search the subject catalogue and open a starter revision card.</p>
+    <label class="field-label" for="subjectSearch">Find a subject</label>
+    <input id="subjectSearch" type="search" placeholder="Search subjects…" autocomplete="off">
+    <div id="subjectList" class="subject-list"></div>
+    <div id="subjectDetail" class="detail-card">
+      <p class="eyebrow">STARTER REVISION</p><h3>Select a subject</h3><p class="muted">Choose a subject above to view its starter topic.</p>
+    </div>
+    <p class="fineprint">The catalogue is broad, but the detailed notes are still being developed. Always check your school's subject offering and the official CAPS/DBE syllabus.</p>
+  </section>
+
+  <section id="page-planner" class="page hidden">
+    <h2>My study planner</h2>
+    <p class="muted">Add manageable goals and tick them off as you finish.</p>
+    <form id="taskForm" class="task-form">
+      <label class="field-label" for="taskInput">Study goal</label>
+      <input id="taskInput" maxlength="120" placeholder="e.g. Revise the Cold War" required>
+      <div class="form-row">
+        <input id="taskDate" type="date" aria-label="Target date">
+        <button class="primary-btn" type="submit">Add goal +</button>
+      </div>
+    </form>
+    <div class="progress-line"><div id="taskBar"></div></div>
+    <p id="taskSummary" class="muted small"></p>
+    <div id="taskList" class="task-list"></div>
+  </section>
+
+  <section id="page-progress" class="page hidden">
+    <h2>Your progress</h2>
+    <p class="muted">A little progress still counts. Keep showing up.</p>
+    <div class="stats-grid">
+      <div class="stat-card"><span id="statDone">0</span><small>Goals completed</small></div>
+      <div class="stat-card"><span id="statTotal">0</span><small>Total goals</small></div>
+      <div class="stat-card"><span id="statRate">0%</span><small>Completion</small></div>
+    </div>
+    <div class="notice"><b>Your next step</b><p>Open your planner and choose one realistic task to complete today.</p><button class="primary-btn" data-go="planner">Open planner</button></div>
+    <button id="resetBtn" class="text-btn">Clear all study goals</button>
+  </section>
+</main>
+<footer><span>MatricMate SA</span><span>Built for South African learners 🖤💛</span></footer>
+<div id="toast" role="status" class="toast hidden"></div>
+<script src="app.js"></script>
+</body>
+</html>

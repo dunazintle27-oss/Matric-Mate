@@ -1,0 +1,13 @@
+{
+  "name": "MatricMate SA",
+  "short_name": "MatricMate",
+  "description": "Your South African CAPS study companion.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f7f8",
+  "theme_color": "#111114",
+  "icons": [
+    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
